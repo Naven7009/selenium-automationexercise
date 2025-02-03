@@ -3,8 +3,10 @@ Method Names → CamelCase initializeDriver(),loadUrl()
 Instance Variables → private WebDriver driver
 */
 //intializeDriver() or constructor -- which is best??
-package org.automation;
+package org.automation.tests;
 
+import org.automation.base.*;
+import org.automation.pages.SignupPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package org.automation;
+package org.automation.base;
 
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;

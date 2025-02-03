@@ -1,4 +1,4 @@
-package org.automation;
+package org.automation.pages;
 
 import java.time.Duration;
 
