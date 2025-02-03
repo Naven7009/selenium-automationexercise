@@ -32,13 +32,7 @@ public class AutomationTest extends BaseClass {
 			System.out.println("New user detected. Proceeding with signup...");
 			signupPage.fillSignupForm();
 			signupPage.createAccount();
-
-			if (signupPage.isAccountCreated()) {
-				System.out.println("Account created successfully.");
-				signupPage.continueToHomePage();
-			} else {
-				System.out.println("Account creation failed.");
-			}
+			signupPage.continueToHomePage();
 		}
 	}
 

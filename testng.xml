@@ -1,0 +1,7 @@
+<suite name="AutomationTestSuite" parallel="methods" thread-count="2">
+    <test name="AutomationParallelTests">
+        <classes>
+            <class name="org.automation.tests.AutomationTest"/>
+        </classes>
+    </test>
+</suite>
