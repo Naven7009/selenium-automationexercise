@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="methods" name="Failed suite [AutomationTestSuite]">
-  <test thread-count="2" parallel="methods" name="AutomationParallelTests(failed)">
+<suite thread-count="1" name="Failed suite [AutomationTestSuite]">
+  <test thread-count="1" name="AutomationParallelTests(failed)">
     <classes>
-      <class name="org.automation.tests.AutomationTest">
+      <class name="org.automation.tests.LoginoutTest">
         <methods>
+          <include name="testLogin"/>
           <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="testSignup"/>
         </methods>
-      </class> <!-- org.automation.tests.AutomationTest -->
+      </class> <!-- org.automation.tests.LoginoutTest -->
     </classes>
   </test> <!-- AutomationParallelTests(failed) -->
 </suite> <!-- Failed suite [AutomationTestSuite] -->

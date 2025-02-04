@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-04T00:08:24 IST" name="AutomationTestSuite" finished-at="2025-02-04T00:08:44 IST" duration-ms="19166">
+  <suite started-at="2025-02-04T08:56:07 IST" name="AutomationTestSuite" finished-at="2025-02-04T08:56:44 IST" duration-ms="36376">
     <groups>
     </groups>
-    <test started-at="2025-02-04T00:08:24 IST" name="AutomationParallelTests" finished-at="2025-02-04T00:08:44 IST" duration-ms="19166">
-      <class name="org.automation.tests.AutomationTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:org.automation.tests.AutomationTest@236e3f4e]" started-at="2025-02-04T00:08:24 IST" name="setUp" finished-at="2025-02-04T00:08:43 IST" duration-ms="18944" status="PASS">
+    <test started-at="2025-02-04T08:56:07 IST" name="AutomationParallelTests" finished-at="2025-02-04T08:56:44 IST" duration-ms="36376">
+      <class name="org.automation.tests.SignupTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.automation.tests.SignupTest@2177849e]" started-at="2025-02-04T08:56:08 IST" name="setUp" finished-at="2025-02-04T08:56:12 IST" duration-ms="4609" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testSignup()[pri:0, instance:org.automation.tests.AutomationTest@236e3f4e]" started-at="2025-02-04T00:08:43 IST" name="testSignup" finished-at="2025-02-04T00:08:43 IST" duration-ms="33" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchWindowException">
+        <test-method signature="testSignup()[pri:1, instance:org.automation.tests.SignupTest@2177849e]" started-at="2025-02-04T08:56:12 IST" name="testSignup" finished-at="2025-02-04T08:56:32 IST" duration-ms="19804" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSignup -->
+      </class> <!-- org.automation.tests.SignupTest -->
+      <class name="org.automation.tests.LoginoutTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.automation.tests.LoginoutTest@55b53d44]" started-at="2025-02-04T08:56:32 IST" name="setUp" finished-at="2025-02-04T08:56:32 IST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin()[pri:2, instance:org.automation.tests.LoginoutTest@55b53d44]" started-at="2025-02-04T08:56:32 IST" name="testLogin" finished-at="2025-02-04T08:56:42 IST" duration-ms="10065" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[no such window: target window already closed
-from unknown error: web view not found
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//input[@data-qa='login-email']"}
   (Session info: chrome=132.0.6834.160)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.16.1', revision: '9b4c83354e'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9bd18790b17a2b72fa6cc08ad6d2a05b, findElement {using=xpath, value=//a[contains(text(),'Signup / Login')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\Navenraj\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63576}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63576/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9bd18790b17a2b72fa6cc08ad6d2a05b]]>
+Command: [d0e2bc49fc66fb9d97de6df8724e498c, findElement {using=xpath, value=//input[@data-qa='login-email']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\Navenraj\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55642}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55642/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d0e2bc49fc66fb9d97de6df8724e498c]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@data-qa='login-email']"}
   (Session info: chrome=132.0.6834.160)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.16.1', revision: '9b4c83354e'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9bd18790b17a2b72fa6cc08ad6d2a05b, findElement {using=xpath, value=//a[contains(text(),'Signup / Login')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\Navenraj\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63576}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63576/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9bd18790b17a2b72fa6cc08ad6d2a05b
+Command: [d0e2bc49fc66fb9d97de6df8724e498c, findElement {using=xpath, value=//input[@data-qa='login-email']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\Navenraj\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55642}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55642/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d0e2bc49fc66fb9d97de6df8724e498c
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -50,8 +60,8 @@ at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(Elemen
 at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:364)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:358)
-at org.automation.pages.SignupPage.clickSignupTab(SignupPage.java:46)
-at org.automation.tests.AutomationTest.testSignup(AutomationTest.java:26)
+at org.automation.pages.LoginoutPage.loginDetails(LoginoutPage.java:20)
+at org.automation.tests.LoginoutTest.testLogin(LoginoutTest.java:23)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -64,23 +74,33 @@ at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInv
 at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
 at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-at java.base/java.lang.Thread.run(Thread.java:842)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+at org.testng.TestNG.runSuites(TestNG.java:1134)
+at org.testng.TestNG.run(TestNG.java:1101)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testSignup -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.automation.tests.AutomationTest@236e3f4e]" started-at="2025-02-04T00:08:43 IST" name="tearDown" finished-at="2025-02-04T00:08:44 IST" duration-ms="142" status="PASS">
+        </test-method> <!-- testLogin -->
+        <test-method signature="testLogout()[pri:3, instance:org.automation.tests.LoginoutTest@55b53d44]" started-at="2025-02-04T08:56:42 IST" name="testLogout" finished-at="2025-02-04T08:56:44 IST" duration-ms="1822" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- org.automation.tests.AutomationTest -->
+        </test-method> <!-- testLogout -->
+      </class> <!-- org.automation.tests.LoginoutTest -->
     </test> <!-- AutomationParallelTests -->
   </suite> <!-- AutomationTestSuite -->
 </testng-results>

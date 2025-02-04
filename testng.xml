@@ -1,7 +1,8 @@
-<suite name="AutomationTestSuite" parallel="methods" thread-count="2">
+<suite name="AutomationTestSuite" thread-count="1">
     <test name="AutomationParallelTests">
         <classes>
-            <class name="org.automation.tests.AutomationTest"/>
+            <class name="org.automation.tests.SignupTest"/>
+            <class name="org.automation.tests.LoginoutTest"/>>
         </classes>
     </test>
 </suite>
