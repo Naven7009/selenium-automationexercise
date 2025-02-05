@@ -23,10 +23,10 @@ public class SignupTest extends BaseClass {
 		signupPage = new SignupPage(driver);
 	}
 
-	@Test(priority =1)
+	@Test(priority = 1)
 	public void testSignup() {
 		signupPage.clickSignupTab();
-		signupPage.enterSignupDetails("automationexercise", "automationexercise13@gmail.com");
+		signupPage.enterSignupDetails("automationexercise", "automationexercise21@gmail.com");
 
 		if (signupPage.isEmailAlreadyRegistered()) {
 			System.out.println("Email already registered. Login instead.");
@@ -35,11 +35,7 @@ public class SignupTest extends BaseClass {
 			signupPage.fillSignupForm();
 			signupPage.createAccount();
 			signupPage.continueToHomePage();
+			
 		}
 	}
-
-//	@AfterClass
-//	public void tearDown() {
-//		closeBrowser();
-//	}
 }

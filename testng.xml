@@ -1,8 +1,15 @@
-<suite name="AutomationTestSuite" thread-count="1">
-    <test name="AutomationParallelTests">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >
+<suite name="AutomationSuite">
+    <test name="SignupTest">
         <classes>
             <class name="org.automation.tests.SignupTest"/>
-            <class name="org.automation.tests.LoginoutTest"/>>
+            <class name="org.automation.tests.LoginoutTest"/>
+        </classes>
+    </test>
+
+    <test name="LoginTest">
+        <classes>
+            <class name="org.automation.tests.LoginoutTest"/>
         </classes>
     </test>
 </suite>
