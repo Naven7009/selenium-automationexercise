@@ -1,0 +1,31 @@
+name: selenium-automationexercise CI
+
+on:
+  push:
+  schedule:
+    - cron: '30 18 * * *'  # Runs every day at 10 PM UTC
+
+jobs:
+  selenium-tests:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Maven
+        run: choco install maven -y  # Chocolatey for Maven on Windows
+
+      - name: Run Selenium TestNG Tests
+        run: mvn test
+
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/surefire-reports
