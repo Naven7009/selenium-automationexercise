@@ -4,40 +4,49 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
   schedule:
-    - cron: '30 18 * * *'  # Runs at 6:30 PM every day (UTC)
+    - cron: '30 18 * * *'  # 6:30 PM UTC daily
 
 jobs:
   selenium-tests:
-    runs-on: windows-latest  # Runs on a Windows environment
+    runs-on: windows-latest  # Using Windows runner
 
     steps:
-      # Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Set up Java
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # Install Maven via Chocolatey
       - name: Install Maven
-        run: choco install maven -y
+        run: |
+          choco install maven -y  # Install Maven via Chocolatey
 
-      # Install WebDriver (ChromeDriver or GeckoDriver depending on your browser)
-      - name: Install ChromeDriver
-        run: choco install chromedriver -y
+      - name: Clean Maven Cache and Settings
+        run: |
+          rm -rf ~/.m2/repository  # Remove local repository cache
+          rm -f ~/.m2/settings.xml  # Remove global settings.xml file
+          rm -f ~/.m2/settings-security.xml  # Remove any encrypted password config
 
-      # Optionally, you can install GeckoDriver for Firefox
-      # - name: Install GeckoDriver
-      #   run: choco install geckodriver -y
+      - name: Set up Maven settings.xml with no repository credentials
+        run: |
+          echo "<settings>" > $HOME/.m2/settings.xml
+          echo "  <mirrors>" >> $HOME/.m2/settings.xml
+          echo "    <mirror>" >> $HOME/.m2/settings.xml
+          echo "      <id>central</id>" >> $HOME/.m2/settings.xml
+          echo "      <url>https://repo.maven.apache.org/maven2</url>" >> $HOME/.m2/settings.xml
+          echo "    </mirror>" >> $HOME/.m2/settings.xml
+          echo "  </mirrors>" >> $HOME/.m2/settings.xml
+          echo "</settings>" >> $HOME/.m2/settings.xml
 
-      # Run Maven clean and test with debug output for better visibility
       - name: Run Selenium TestNG Tests
-        run: mvn clean test -X  # Run with debug output
+        run: mvn clean test -X  # Clean and run the tests with debug output
+
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: target/surefire-reports
