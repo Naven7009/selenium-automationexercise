@@ -22,25 +22,24 @@ jobs:
           java-version: '17'
 
       - name: Install Maven
-        run: |
-          choco install maven -y  # Install Maven via Chocolatey
+        run: choco install maven -y  # Install Maven via Chocolatey
 
       - name: Clean Maven Cache and Settings
         run: |
-          rm -rf ~/.m2/repository  # Remove local repository cache
-          rm -f ~/.m2/settings.xml  # Remove global settings.xml file
-          rm -f ~/.m2/settings-security.xml  # Remove any encrypted password config
+          del /f /q %USERPROFILE%\.m2\repository\*  # Remove local repository cache
+          del /f /q %USERPROFILE%\.m2\settings.xml  # Remove global settings.xml file
+          del /f /q %USERPROFILE%\.m2\settings-security.xml  # Remove any encrypted password config
 
       - name: Set up Maven settings.xml with no repository credentials
         run: |
-          echo "<settings>" > $HOME/.m2/settings.xml
-          echo "  <mirrors>" >> $HOME/.m2/settings.xml
-          echo "    <mirror>" >> $HOME/.m2/settings.xml
-          echo "      <id>central</id>" >> $HOME/.m2/settings.xml
-          echo "      <url>https://repo.maven.apache.org/maven2</url>" >> $HOME/.m2/settings.xml
-          echo "    </mirror>" >> $HOME/.m2/settings.xml
-          echo "  </mirrors>" >> $HOME/.m2/settings.xml
-          echo "</settings>" >> $HOME/.m2/settings.xml
+          echo ^<settings^> > %USERPROFILE%\.m2\settings.xml
+          echo ^<mirrors^> >> %USERPROFILE%\.m2\settings.xml
+          echo ^<mirror^> >> %USERPROFILE%\.m2\settings.xml
+          echo ^<id^>central^</id^> >> %USERPROFILE%\.m2\settings.xml
+          echo ^<url^>https://repo.maven.apache.org/maven2^</url^> >> %USERPROFILE%\.m2\settings.xml
+          echo ^</mirror^> >> %USERPROFILE%\.m2\settings.xml
+          echo ^</mirrors^> >> %USERPROFILE%\.m2\settings.xml
+          echo ^</settings^> >> %USERPROFILE%\.m2\settings.xml
 
       - name: Run Selenium TestNG Tests
         run: mvn clean test -X  # Clean and run the tests with debug output
