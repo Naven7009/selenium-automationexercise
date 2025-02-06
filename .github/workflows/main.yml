@@ -30,28 +30,14 @@ jobs:
       - name: Install Maven
         run: choco install maven -y
 
-      - name: Clean Maven Cache and Settings
-        run: |
-          del /f /q %USERPROFILE%\.m2\repository\*  # Remove local repository cache
-          del /f /q %USERPROFILE%\.m2\settings.xml  # Remove global settings.xml file
-          del /f /q %USERPROFILE%\.m2\settings-security.xml  # Remove any encrypted password config
+      # Install WebDriver (ChromeDriver or GeckoDriver depending on your browser)
+      - name: Install ChromeDriver
+        run: choco install chromedriver -y
 
-      - name: Set up Maven settings.xml with no repository credentials
-        run: |
-          echo ^<settings^> > %USERPROFILE%\.m2\settings.xml
-          echo ^<mirrors^> >> %USERPROFILE%\.m2\settings.xml
-          echo ^<mirror^> >> %USERPROFILE%\.m2\settings.xml
-          echo ^<id^>central^</id^> >> %USERPROFILE%\.m2\settings.xml
-          echo ^<url^>https://repo.maven.apache.org/maven2^</url^> >> %USERPROFILE%\.m2\settings.xml
-          echo ^</mirror^> >> %USERPROFILE%\.m2\settings.xml
-          echo ^</mirrors^> >> %USERPROFILE%\.m2\settings.xml
-          echo ^</settings^> >> %USERPROFILE%\.m2\settings.xml
+      # Optionally, you can install GeckoDriver for Firefox
+      # - name: Install GeckoDriver
+      #   run: choco install geckodriver -y
 
+      # Run Maven clean and test with debug output for better visibility
       - name: Run Selenium TestNG Tests
-        run: mvn clean test -X  # Clean and run the tests with debug output
-
-      - name: Upload Test Reports
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: target/surefire-reports
+        run: mvn clean test -X  # Run with debug output
