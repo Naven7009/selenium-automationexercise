@@ -1,0 +1,43 @@
+name: Selenium TestNG CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '30 18 * * *'  # Runs at 6:30 PM every day (UTC)
+
+jobs:
+  selenium-tests:
+    runs-on: windows-latest  # Runs on a Windows environment
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Set up Java
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Install Maven via Chocolatey
+      - name: Install Maven
+        run: choco install maven -y
+
+      # Install WebDriver (ChromeDriver or GeckoDriver depending on your browser)
+      - name: Install ChromeDriver
+        run: choco install chromedriver -y
+
+      # Optionally, you can install GeckoDriver for Firefox
+      # - name: Install GeckoDriver
+      #   run: choco install geckodriver -y
+
+      # Run Maven clean and test with debug output for better visibility
+      - name: Run Selenium TestNG Tests
+        run: mvn clean test -X  # Run with debug output
